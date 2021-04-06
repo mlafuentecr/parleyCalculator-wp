@@ -5,8 +5,8 @@
 function add_stylesheet_arbitrage()
 {
     echo "<!-- CUSTOM JS Parlay-->";
-    echo "<link href='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.css ' rel='stylesheet' type='text/css'>";
-    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.js '></script>";
+    echo "<link href='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.css?v=2.6' rel='stylesheet' type='text/css'>";
+    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.js?v=2.6'></script>";
 }
 
 function calculator_function_arbitrage($atts = array())
@@ -43,7 +43,7 @@ function calculator_function_arbitrage($atts = array())
 
 
 
-      <div class="col-md-7  col-sm-12">
+      <div class="col-md-7  col-sm-12 stake">
         <div class="form-col">
         <div class="row">
         <div class="col">

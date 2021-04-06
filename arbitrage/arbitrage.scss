@@ -16,11 +16,23 @@
     z-index: 2;
     width: 100%;
     position: relative;
+    .stake {
+        margin-top: 20px;
+        padding: 20px;
+        @media only screen and (max-width: 768px) {
+            background: linear-gradient(180deg, #b6b6b6 0%, #fff 19%);
+        }
+    }
+    .odds-output {
+        background: linear-gradient(180deg, #23013b 0%, #0d2167 19%);
+        color: white;
+        padding: 20px;
+        margin-top: 10px;
+    }
     .form-input {
         width: 100%;
         float: left;
         background: #fff;
-        background-color: red;
         border-radius: 3px;
         -webkit-border-radius: 3px;
         padding: 7px 10px;
@@ -31,24 +43,64 @@
     }
     #submit_arbitrage {
         background: #243983;
-        -webkit-box-flex: 2;
-        -ms-flex: 2;
         flex: 2;
-        height: 4rem;
+        height: 3rem;
         color: #fff;
         font-family: Open Sans;
         font-size: 1.4rem;
         font-weight: 700;
         border-radius: 0.4rem;
         border: none;
-        margin: 0 auto 2rem;
         outline-color: #3699ff;
         text-align: center;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+    .input-text {
+        margin: 10px;
+        width: 100%;
+        float: left;
+        color: #fff;
+        background: #989aa2;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        padding: 7px 10px;
+        border: 1px solid #0d2167;
+        font-size: 14px;
+        text-align: right;
+        height: 35px;
+        font-weight: 500;
+    }
+    .stake-row h5,
+    .payout-row h5 {
+        display: none;
     }
     .btn-odds {
         display: flex;
         min-width: 100%;
         justify-content: space-around;
         margin: 40px 0px;
+        align-content: center;
+        align-items: center;
+    }
+    #reset {
+        background: #7a5f5f;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        height: 3rem;
+        color: #fff;
+        font-family: Open Sans;
+        font-size: 1.4rem;
+        font-weight: 700;
+        border-radius: 0.4rem;
+        border: none;
+        margin-top: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
     }
 }

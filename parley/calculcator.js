@@ -18,10 +18,12 @@ const selRiskWin = document.querySelector('#selRiskWin');
 const riskamountD = document.querySelector('#risk-amount');
 const selLineSet = document.querySelector('#selLineSet');
 //Fix padding
-var article = parent.closest('article');
-article.classList.add('remoMargin');
+if (parent) {
+	let article = parent.closest('article');
+	article.classList.add('remoMargin');
+}
 
-console.log(`%c 🏆 Calculator v1.4`, style);
+console.log(`%c ➡ Calculator v1.1.1`, style);
 //function add lines
 function setgameLines() {
 	numberRows = selNumGames.value;
@@ -44,14 +46,16 @@ function setgameLines() {
 }
 
 //RESET
-inforesetBtn.addEventListener('click', () => {
-	selNumGames.value = 3;
-	setgameLines();
-	const inputs = document.querySelectorAll('.inputLine');
-	inputs.forEach(item => (item.value = 0));
-	riskamountD.value = 0;
-	result.classList.remove('show');
-});
+if (inforesetBtn) {
+	inforesetBtn.addEventListener('click', () => {
+		selNumGames.value = 3;
+		setgameLines();
+		const inputs = document.querySelectorAll('.inputLine');
+		inputs.forEach(item => (item.value = 0));
+		riskamountD.value = 0;
+		result.classList.remove('show');
+	});
+}
 //Carga lineas al inicio
 window.addEventListener('load', event => {
 	//console.log('page is fully loaded');

@@ -162,10 +162,13 @@
             font-weight: 700;
             border-radius: 0.4rem;
             border: none;
-            margin: 0 auto 2rem;
             margin-bottom: 2rem;
             margin-top: 0px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto 10px;
         }
         .infoBtn {
             background: #949494;

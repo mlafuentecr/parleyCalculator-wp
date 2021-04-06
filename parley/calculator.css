@@ -226,10 +226,19 @@
   font-weight: 700;
   border-radius: 0.4rem;
   border: none;
-  margin: 0 auto 2rem;
   margin-bottom: 2rem;
   margin-top: 0px;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto 10px;
 }
 
 .calc-section .btns .infoBtn {

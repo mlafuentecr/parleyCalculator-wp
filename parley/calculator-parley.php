@@ -2,20 +2,16 @@
 /*-----------------------------------------------------------------------------------*/
 /* Parlay
 /*-----------------------------------------------------------------------------------*/
+
 function add_stylesheet_to_head()
 {
     echo "<!-- CUSTOM JS Parlay-->";
-    echo "<link href='" . get_template_directory_uri() . "/calculator/parley/calculator.css ' rel='stylesheet' type='text/css'>";
-    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/parley/calculcator.js '></script>";
+    echo "<link href='" . get_template_directory_uri() . "/calculator/parley/calculator.css' rel='stylesheet' type='text/css'>";
+    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/parley/calculcator.js'></script>";
 }
 
-function dotirating_function($atts = array())
+function parley_function()
 {
-
-    // // set up default parameters
-    // extract(shortcode_atts(array(
-    //     'rating' => '5',
-    // ), $atts));
 
     $content = '<div class="calc-section">
     <div class="inputs-container">
@@ -47,15 +43,16 @@ function dotirating_function($atts = array())
     <input id="risk-amount" class="odds-value-input" autocomplete="off" type="text" value="0" /></div>
 
       <div class="btns">
-      <button class="btn btn-light resetBtn mx-2" type="button">Reset</button>
+      <button class="btn btn-light resetBtn mx-2" type="button"><i class="fa fa-refresh" aria-hidden="true"></i>Reset</button>
       <input id="calculate-parlay-btn" class="mx-auton " type="button" value="Calculate" />
       <button class="btn btn-light infoBtn" type="button">How to use the Parlay Calculator</button>
       </div>
     </div>
     <div class="convertion-results-wrapper">&nbsp;</div>
     </div>';
+
     return $content;
 }
 
 add_action('wp_head', 'add_stylesheet_to_head');
-add_shortcode('calculatorParley', 'dotirating_function');
+add_shortcode('calculatorParley', 'parley_function');

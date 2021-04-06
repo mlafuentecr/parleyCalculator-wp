@@ -1,85 +1,91 @@
+var j = jQuery.noConflict();
+var current_environment = document.location.hostname;
+function track_user_activity(t, e, c = '', i = '') {
+	console.log('test');
+}
+
 var i,
 	bet_count = 0,
-	total_stake = $('#total_stake').val(),
+	total_stake = j('#total_stake').val(),
 	status = !0;
 function validate_bet() {
-	for (status = !0, exist_bet_count = 0, bet_count = $('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++) {
-		'' == $('#odds_' + i).val() || null == $('#odds_' + i).val()
-			? ($('#stake_' + i).text('$0.00'), $('#payout_' + i).text('$0.00'), $('#total_payout, #total_profit').text('$0.00'), $('#roi').text('0.00'))
+	for (status = !0, exist_bet_count = 0, bet_count = j('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++) {
+		'' == j('#odds_' + i).val() || null == j('#odds_' + i).val()
+			? (j('#stake_' + i).text('$0.00'), j('#payout_' + i).text('$0.00'), j('#total_payout, #total_profit').text('$0.00'), j('#roi').text('0.00'))
 			: exist_bet_count++;
 	}
 	if (0 == exist_bet_count || 1 == exist_bet_count)
 		for (status = !1, i = 1; i <= bet_count; i++) {
-			('' != $('#odds_' + i).val() && null != $('#odds_' + i).val()) ||
-				$('#odds_' + i)
+			('' != j('#odds_' + i).val() && null != j('#odds_' + i).val()) ||
+				j('#odds_' + i)
 					.attr('placeholder', 'Please Enter Bet ' + i + ' Odds.')
 					.addClass('error-class')
 					.val('');
 		}
 	if (1 == status || 'true' == status) {
 		for (i = 1; i <= bet_count; i++)
-			if ('' != $('#odds_' + i).val() && null != $('#odds_' + i).val()) {
+			if ('' != j('#odds_' + i).val() && null != j('#odds_' + i).val()) {
 				var t;
-				('' != (t = convert_odds('odds_' + i, $('#odds_' + i).val())) && null != t && 'undefined' != t) ||
+				('' != (t = convert_odds('odds_' + i, j('#odds_' + i).val())) && null != t && 'undefined' != t) ||
 					((status = !1),
-					$('#stake_' + i).text('$0.00'),
-					$('#payout_' + i).text('$0.00'),
-					$('#total_payout, #total_profit').text('$0.00'),
-					$('#roi').text('0.00'),
-					$('#odds_' + i)
+					j('#stake_' + i).text('$0.00'),
+					j('#payout_' + i).text('$0.00'),
+					j('#total_payout, #total_profit').text('$0.00'),
+					j('#roi').text('0.00'),
+					j('#odds_' + i)
 						.attr('placeholder', 'Please Enter Valid Bet ' + i + ' Odds')
 						.addClass('error-class')
 						.val(''));
 			}
 	} else {
-		for (i = 1; i <= bet_count; i++) $('#stake_' + i).text('$0.00'), $('#payout_' + i).text('$0.00');
-		$('#total_payout, #total_profit').text('$0.00'), $('#roi').text('0.00');
+		for (i = 1; i <= bet_count; i++) j('#stake_' + i).text('$0.00'), j('#payout_' + i).text('$0.00');
+		j('#total_payout, #total_profit').text('$0.00'), j('#roi').text('0.00');
 	}
 	return status;
 }
 function validate_stake() {
 	var t = !0;
 	return (
-		'' == (total_stake = $('#total_stake').val()) || null == total_stake
-			? ((t = !1), $('#total_stake').attr('placeholder', 'Please Enter Stake').addClass('error-class').val(''))
+		'' == (total_stake = j('#total_stake').val()) || null == total_stake
+			? ((t = !1), j('#total_stake').attr('placeholder', 'Please Enter Stake').addClass('error-class').val(''))
 			: '' == total_stake ||
 			  null == total_stake ||
 			  ('.' != total_stake && /^[0-9.]+$/.test(total_stake) && parseFloat(total_stake) != parseFloat(0)) ||
-			  ((t = !1), $('#total_stake').attr('placeholder', 'Please Enter Valid Stake').addClass('error-class').val('')),
+			  ((t = !1), j('#total_stake').attr('placeholder', 'Please Enter Valid Stake').addClass('error-class').val('')),
 		t
 	);
 }
 function calculate_bet_stake() {
-	total_stake = $('#total_stake').val();
+	total_stake = j('#total_stake').val();
 	var t = 0,
 		a = 0;
-	for (bet_count = $('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++)
-		if ('' != $('#odds_' + i).val() && null != $('#odds_' + i).val()) {
+	for (bet_count = j('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++)
+		if ('' != j('#odds_' + i).val() && null != j('#odds_' + i).val()) {
 			var e = '';
-			if (((e = convert_odds('odds_' + i, $('#odds_' + i).val())), (1 == status || 'true' == status) && '' != e && null != e && e > 1)) a = parseFloat(1 / e) + a;
+			if (((e = convert_odds('odds_' + i, j('#odds_' + i).val())), (1 == status || 'true' == status) && '' != e && null != e && e > 1)) a = parseFloat(1 / e) + a;
 			else 1 == e && error_message('odds_' + i);
 		}
 	a = parseFloat(1 / a);
 	var o = 0;
 	for (i = 1; i <= bet_count; i++)
-		if ('' != $('#odds_' + i).val() && null != $('#odds_' + i).val()) {
+		if ('' != j('#odds_' + i).val() && null != j('#odds_' + i).val()) {
 			e = '';
-			if (((e = convert_odds('odds_' + i, $('#odds_' + i).val())), (1 == status || 'true' == status) && '' != e && null != e && e > 1)) {
+			if (((e = convert_odds('odds_' + i, j('#odds_' + i).val())), (1 == status || 'true' == status) && '' != e && null != e && e > 1)) {
 				var s = 0,
 					r = 0,
 					d = parseFloat(1 / e) * a,
 					l = ((s = parseFloat(d) * parseFloat(total_stake)), (r = parseFloat(s) * e), parseFloat(1 / e) * parseFloat(total_stake));
-				$('#stake_' + i).text('$' + s.toFixed(2));
+				j('#stake_' + i).text('$' + s.toFixed(2));
 				parseFloat(e), parseFloat(l);
-				$('#payout_' + i).text('$' + r.toFixed(2)), (t = parseFloat(r) + parseFloat(t)), o++;
+				j('#payout_' + i).text('$' + r.toFixed(2)), (t = parseFloat(r) + parseFloat(t)), o++;
 			}
 		}
 	if (1 == status || 'true' == status) {
-		(t = parseFloat(t) / parseFloat(o)), $('#total_payout').text('$' + t.toFixed(2));
+		(t = parseFloat(t) / parseFloat(o)), j('#total_payout').text('$' + t.toFixed(2));
 		var _ = parseFloat(t) - parseFloat(total_stake);
-		_ >= 0 ? $('#total_profit').text('$' + _.toFixed(2)) : $('#total_profit').text('-$' + Math.abs(_).toFixed(2));
+		_ >= 0 ? j('#total_profit').text('$' + _.toFixed(2)) : j('#total_profit').text('-$' + Math.abs(_).toFixed(2));
 		var u = ((parseFloat(_) / parseFloat(total_stake)) * 100).toFixed(2);
-		$('#roi').text(u + '%'), track_user_activity('button_clicked', 'home', 'clicked_button_name', 'calculate');
+		j('#roi').text(u + '%'), track_user_activity('button_clicked', 'home', 'clicked_button_name', 'calculate');
 	}
 }
 function convert_odds(t, a) {
@@ -100,7 +106,7 @@ function convert_odds(t, a) {
 						a <= 100 && (uk_odds = odds_conversion_decimal_to_fraction_odds(a)),
 						a >= 2 ? (s = 100 * (a - 1)) : a < 2 && (s = -100 / (a - 1)),
 						(s = a > 1 ? Math.round(s) : 'N/A'),
-						parseFloat(a) != 1 / 0 && 'NaN' != parseFloat(a) && uk_odds != 1 / 0 && NaN != uk_odds && s != 1 / 0 && NaN != s && 0 != $.isNumeric(a))
+						parseFloat(a) != 1 / 0 && 'NaN' != parseFloat(a) && uk_odds != 1 / 0 && NaN != uk_odds && s != 1 / 0 && NaN != s && 0 != j.isNumeric(a))
 					)
 						return parseFloat(a).toFixed(3);
 					error_message(t);
@@ -118,7 +124,7 @@ function convert_odds(t, a) {
 					((uk_odds = numerator + '/' + denominator),
 					aus_odds <= 100 && (uk_odds = odds_conversion_decimal_to_fraction_odds(aus_odds)),
 					(aus_odds = isNaN(a) ? 'N/A' : aus_odds.toFixed(3)),
-					a != 1 / 0 && 'NaN' != a && uk_odds != 1 / 0 && NaN != uk_odds && s != 1 / 0 && NaN != s && 0 != $.isNumeric(a))
+					a != 1 / 0 && 'NaN' != a && uk_odds != 1 / 0 && NaN != uk_odds && s != 1 / 0 && NaN != s && 0 != j.isNumeric(a))
 				)
 					return aus_odds;
 				error_message(t);
@@ -138,7 +144,7 @@ function convert_odds(t, a) {
 function odds_conversion_decimal_to_fraction_odds(t) {
 	var a = [];
 	return (
-		$.each(
+		j.each(
 			{
 				'1/100': '1.01',
 				'1/50': '1.02',
@@ -232,10 +238,10 @@ function Validate(t) {
 }
 function error_message(t = '') {
 	for (
-		bet_count = $('.arbitrage-bet-row').length,
+		bet_count = j('.arbitrage-bet-row').length,
 			'' != t &&
-				($('#' + t).hasClass('error-class') ||
-					$('#' + t)
+				(j('#' + t).hasClass('error-class') ||
+					j('#' + t)
 						.attr('placeholder', 'Please Enter Valid Bet ' + t.replace('odds_', '') + ' Odds')
 						.addClass('error-class')
 						.val('')),
@@ -244,48 +250,48 @@ function error_message(t = '') {
 		i++
 	)
 		'' == t &&
-			($('#odds_' + i).hasClass('error-class') ||
-				$('#odds_' + i)
+			(j('#odds_' + i).hasClass('error-class') ||
+				j('#odds_' + i)
 					.attr('placeholder', 'Please Enter Valid Bet ' + i + ' Odds')
 					.addClass('error-class')
 					.val('')),
-			$('#stake_' + i).text('$0.00'),
-			$('#payout_' + i).text('$0.00');
-	$('#total_payout, #total_profit').text('$0.00'), $('#roi').text('0.00'), (status = !1);
+			j('#stake_' + i).text('$0.00'),
+			j('#payout_' + i).text('$0.00');
+	j('#total_payout, #total_profit').text('$0.00'), j('#roi').text('0.00'), (status = !1);
 }
-$(document).on('click', '.sidebar-nav-click', function (t) {
-	var a = $(this).data('sidebar_nav');
+j(document).on('click', '.sidebar-nav-click', function (t) {
+	var a = j(this).data('sidebar_nav');
 	(a = a.replace(/ /g, '_').toLowerCase()), track_user_activity('link_clicked', 'home', 'sidebar_navigation_clicked', a);
 }),
-	$(document).on('click', '.wager-term-click', function (t) {
-		var a = $(this).data('wager_term');
+	j(document).on('click', '.wager-term-click', function (t) {
+		var a = j(this).data('wager_term');
 		(a = a.replace(/ /g, '_').toLowerCase()), track_user_activity('link_clicked', 'home', 'wagering_term_clicked', a);
 	}),
-	$(document).on('click, focus', '.form-input', function (t) {
-		var a = $(this).attr('placeholder');
+	j(document).on('click, focus', '.form-input', function (t) {
+		var a = j(this).attr('placeholder');
 		(a = a.replace(/ /g, '_').toLowerCase()), track_user_activity('field_clicked', 'home', 'input_field_clicked', a);
 	}),
-	$(document).on('click', '.w-vulcan-v2-button', function (t) {
-		var a = $(this).attr('title');
+	j(document).on('click', '.w-vulcan-v2-button', function (t) {
+		var a = j(this).attr('title');
 		('Play Video' != a && void 0 !== a) || track_user_activity('video_clicked', 'home', 'video_played', 'how_to_use_the_arbitrage_calculator');
 	}),
-	$('#submit_arbitrage').on('click', function () {
-		if (((bet_status = validate_bet()), (stake_validate = validate_stake()), (total_stake = $('#total_stake').val()), ('true' != bet_status && 1 != bet_status) || 1 != stake_validate)) {
-			for (bet_count = $('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++) $('#stake_' + i).text('$0.00'), $('#payout_' + i).text('$0.00');
-			$('#total_payout, #total_profit').text('$0.00'), $('#roi').text('0.00');
+	j('#submit_arbitrage').on('click', function () {
+		if (((bet_status = validate_bet()), (stake_validate = validate_stake()), (total_stake = j('#total_stake').val()), ('true' != bet_status && 1 != bet_status) || 1 != stake_validate)) {
+			for (bet_count = j('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++) j('#stake_' + i).text('$0.00'), j('#payout_' + i).text('$0.00');
+			j('#total_payout, #total_profit').text('$0.00'), j('#roi').text('0.00');
 		} else calculate_bet_stake();
 	}),
-	$(document).on('click', '#reset', function () {
-		for (bet_count = $('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++)
-			$('#stake_' + i).text('$0.00'), $('#payout_' + i).text('$0.00'), $('#odds_' + i).attr('placeholder', 'Please Enter Bet ' + i + ' Odds.');
-		$('.more_rows').remove(),
-			$('#total_payout, #total_profit').text('$0.00'),
-			$('#roi').text('0.00'),
-			$('input[type="text"]').val('').removeClass('error-class'),
+	j(document).on('click', '#reset', function () {
+		for (bet_count = j('.arbitrage-bet-row').length, i = 1; i <= bet_count; i++)
+			j('#stake_' + i).text('$0.00'), j('#payout_' + i).text('$0.00'), j('#odds_' + i).attr('placeholder', 'Please Enter Bet ' + i + ' Odds.');
+		j('.more_rows').remove(),
+			j('#total_payout, #total_profit').text('$0.00'),
+			j('#roi').text('0.00'),
+			j('input[type="text"]').val('').removeClass('error-class'),
 			track_user_activity('button_clicked', 'home', 'clicked_button_name', 'reset');
 	}),
-	$(document).on('click', '#add_more', function () {
-		var t = parseInt($('.arbitrage-bet-row:last').attr('data-id')),
+	j(document).on('click', '#add_more', function () {
+		var t = parseInt(j('.arbitrage-bet-row:last').attr('data-id')),
 			a =
 				'<div class="col-input-block more_rows arbitrage-bet-row" data-id="' +
 				(t += 1) +
@@ -296,8 +302,8 @@ $(document).on('click', '.sidebar-nav-click', function (t) {
 				'" placeholder="Please Enter Bet ' +
 				t +
 				' Odds" onkeypress="return Validate(event)">\t\t\t\t\t\t\t</div>\t\t\t\t\t\t</div>';
-		$('.bet-row').append(a),
-			$('.stake-row').append(
+		j('.bet-row').append(a),
+			j('.stake-row').append(
 				'<h5 class="odds-title title-mob more_rows" id="stake_title_' +
 					t +
 					'">Stake Bet ' +
@@ -306,7 +312,7 @@ $(document).on('click', '.sidebar-nav-click', function (t) {
 					t +
 					'">$0.00 </span> </div>'
 			),
-			$('.payout-row').append(
+			j('.payout-row').append(
 				'<h5 class="odds-title title-mob more_rows" id="payout_title_' +
 					t +
 					'">Payout Bet ' +
@@ -317,9 +323,9 @@ $(document).on('click', '.sidebar-nav-click', function (t) {
 			),
 			track_user_activity('button_clicked', 'home', 'clicked_button_name', 'more_rows');
 	}),
-	$('input[type=text]').keypress(function () {
-		$(this).removeClass('error-class');
+	j('input[type=text]').keypress(function () {
+		j(this).removeClass('error-class');
 	}),
-	$('input[type=text]').click(function () {
-		$(this).removeClass('error-class');
+	j('input[type=text]').click(function () {
+		j(this).removeClass('error-class');
 	});
