@@ -5,8 +5,8 @@
 function add_stylesheet_arbitrage()
 {
     echo "<!-- CUSTOM JS Parlay-->";
-    echo "<link href='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.css?v=2.6' rel='stylesheet' type='text/css'>";
-    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.js?v=2.6'></script>";
+    echo "<link href='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.css?v=2.8' rel='stylesheet' type='text/css'>";
+    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.js?v=2.8'></script>";
 }
 
 function calculator_function_arbitrage($atts = array())
@@ -33,7 +33,8 @@ function calculator_function_arbitrage($atts = array())
             <div class="col-input-block more_rows arbitrage-bet-row" data-id="3">							<label>Bet 3</label>							<div class="input-odds"><input maxlength="10" class="form-input" type="text" id="odds_3" placeholder="Please Enter Bet 3 Odds" onkeypress="return Validate(event)">							</div>						</div><div class="col-input-block more_rows arbitrage-bet-row" data-id="4">							<label>Bet 4</label>							<div class="input-odds"><input maxlength="10" class="form-input" type="text" id="odds_4" placeholder="Please Enter Bet 4 Odds" onkeypress="return Validate(event)">							</div>						</div></div>
             <div class="col-input-block">
               <label>Stake</label>
-              <div class="input-odds"><input class="form-input error-class" type="text" id="total_stake" placeholder="Please Enter Stake" onkeypress="return isNumberKey(event,$(this))">
+              <div class="input-odds">
+              <input class="form-input error-class" type="text" id="total_stake" placeholder="Please Enter Stake" onkeypress="return isNumberKey(event,$(this))">
               </div>
             </div>
           </div>
@@ -77,9 +78,11 @@ function calculator_function_arbitrage($atts = array())
       </div>
 
       <div class="btn-odds">
-      <a href="javascript:void(0);" class="btn btn-reset" id="add_more"><i class="fa fa-plus-circle" aria-hidden="true"></i>More Bets</a>
-      <a href="javascript:void(0);" class="btn btn-reset" id="reset"><i class="fa fa-refresh" aria-hidden="true"></i> Reset</a>
-      <a href="javascript:void(0);" class="btn btn-white" id="submit_arbitrage">
+      <a href="javascript:void(0);" class="btn " id="add_more">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>More Bets</a>
+      <a href="javascript:void(0);" class="btn btn-reset" id="reset">
+      <i class="fa fa-refresh" aria-hidden="true"></i> Reset</a>
+      <a href="javascript:void(0);" class="btn btn-white mr-3" id="submit_arbitrage">
       CALCULATE</a>
     </div>
 

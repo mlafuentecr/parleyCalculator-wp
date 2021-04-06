@@ -1,0 +1,185 @@
+.calc-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+  background-color: #fff;
+  z-index: 2;
+  width: 100%;
+  min-width: 100%;
+  position: relative;
+}
+
+.calc-section b,
+.calc-section strong {
+  font-weight: 700;
+}
+
+.calc-section .poppover {
+  display: inline-block;
+  position: relative;
+}
+
+.calc-section .poppover .popover__trigger {
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #9c9c9c !important;
+  background-color: #eee;
+  padding: 1px 6px;
+  cursor: pointer;
+}
+
+.calc-section .covers-calculators-payoutBlock {
+  background: -webkit-gradient(linear, left top, left bottom, from(#23013b), color-stop(19%, #0d2167));
+  background: linear-gradient(180deg, #23013b 0%, #0d2167 19%);
+  color: #fff;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.calc-section .covers-CoversHTB-OddsCalcRow {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .calc-section .covers-CoversHTB-OddsCalcRow {
+    width: 50%;
+    background-color: blue;
+  }
+}
+
+.calc-section .profit {
+  width: 100%;
+}
+
+.calc-section .covers-CoversHTB-OddsCalcSubmit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calc-section .covers-CoversHTB-oddsCalc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.calc-section .covers-CoversHTB-oddsCalc .oddsCalculator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 5px;
+}
+
+.calc-section .covers-CoversHTB-oddsCalc form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.calc-section .covers-Calculators-calculateBtn {
+  background: #243983;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  height: 3rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 0.4rem;
+  border: none;
+  outline-color: #3699ff;
+  text-align: center;
+}
+
+.calc-section .covers-Calculators-resetBtn {
+  background: #7a5f5f;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 3rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 0.4rem;
+  border: none;
+  margin-top: 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.calc-section .popover__menu {
+  border-radius: 4px;
+  list-style-type: none;
+  margin: 8px 0;
+  min-width: 100%;
+  padding: 10px;
+  position: absolute;
+  top: -23px;
+  left: 141%;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(63, 63, 68, 0.2);
+          box-shadow: 0 2px 3px 0 rgba(63, 63, 68, 0.2);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  display: none;
+  opacity: 0;
+  background-color: #444;
+  color: #fff;
+  z-index: 20000;
+}
+
+.calc-section .poppover.show .popover__menu {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  height: auto;
+  width: 300px;
+  opacity: 1 !important;
+}
+/*# sourceMappingURL=boc.css.map */

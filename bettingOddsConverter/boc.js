@@ -1,3 +1,14 @@
+const trigger = document.querySelectorAll('.popover__trigger');
+console.log(trigger);
+console.log('entre js1');
+const addShow = function (e) {
+	const div = e.target.offsetParent;
+	div.classList.toggle('show');
+};
+trigger.forEach(item => {
+	console.log(item);
+	item.addEventListener('click', e => addShow(e));
+});
 function oddsConverter(a) {
 	var b = a.form.elements.us_odds,
 		c = a.form.elements.decimal_odds,

@@ -1,0 +1,138 @@
+.calc-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    padding: 2rem 1rem;
+    background-color: #fff;
+    z-index: 2;
+    width: 100%;
+    min-width: 100%;
+    position: relative;
+    b,
+    strong {
+        font-weight: 700;
+    }
+    .poppover {
+        display: inline-block;
+        position: relative;
+        .popover__trigger {
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #9c9c9c !important;
+            background-color: #eee;
+            padding: 1px 6px;
+            cursor: pointer;
+        }
+    }
+    .covers-calculators-payoutBlock {
+        background: -webkit-gradient(linear, left top, left bottom, from(#23013b), color-stop(19%, #0d2167));
+        background: linear-gradient(180deg, #23013b 0%, #0d2167 19%);
+        color: #fff;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+    .covers-CoversHTB-OddsCalcRow {
+        width: 50%;
+        margin-bottom: 20px;
+        @media only screen and (max-width: 768px) {
+            width: 50%;
+            background-color: blue;
+        }
+    }
+    .profit {
+        width: 100%;
+    }
+    .covers-CoversHTB-OddsCalcSubmit {
+        display: flex;
+    }
+    .covers-CoversHTB-oddsCalc {
+        display: flex;
+        flex: 1;
+        .oddsCalculator {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+            margin: 5px;
+        }
+        form {
+            display: flex;
+            flex: 1;
+        }
+    }
+    .covers-Calculators-calculateBtn {
+        background: #243983;
+        flex: 2;
+        height: 3rem;
+        color: #fff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        border-radius: 0.4rem;
+        border: none;
+        outline-color: #3699ff;
+        text-align: center;
+    }
+    .covers-Calculators-resetBtn {
+        background: #7a5f5f;
+        flex: 1;
+        height: 3rem;
+        color: #fff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        border-radius: 0.4rem;
+        border: none;
+        margin-top: 0;
+        text-align: center;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-right: 10px;
+    }
+    .popover__menu {
+        border-radius: 4px;
+        list-style-type: none;
+        margin: 8px 0;
+        min-width: 100%;
+        padding: 10px;
+        position: absolute;
+        top: -23px;
+        left: 141%;
+        box-shadow: 0 2px 3px 0 rgba(63, 63, 68, 0.2);
+        transition-property: transform, opacity;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+        transform: scale(0.9);
+        transform-origin: top left;
+        display: none;
+        opacity: 0;
+        background-color: #444;
+        color: #fff;
+        z-index: 20000;
+    }
+    .poppover.show {
+        .popover__menu {
+            display: flex !important;
+            height: auto;
+            width: 300px;
+            opacity: 1 !important;
+        }
+    }
+}
