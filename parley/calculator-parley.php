@@ -6,8 +6,8 @@
 function add_stylesheet_to_head()
 {
     echo "<!-- CUSTOM JS Parlay-->";
-    echo "<link href='" . get_template_directory_uri() . "/calculator/parley/calculator.css' rel='stylesheet' type='text/css'>";
-    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/parley/calculcator.js'></script>";
+    echo "<link href='" . get_template_directory_uri() . "/calculator/parley/calculator.css?v=4.4' rel='stylesheet' type='text/css'>";
+    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/parley/calculcator.js?v=4.4'></script>";
 }
 
 function parley_function()
@@ -44,7 +44,7 @@ function parley_function()
 
       <div class="btns">
       <button class="btn btn-light resetBtn mx-2" type="button"><i class="fa fa-refresh" aria-hidden="true"></i>Reset</button>
-      <input id="calculate-parlay-btn" class="mx-auton " type="button" value="Calculate" />
+      <input id="calculate-parlay-btn" class="btn mx-auto " type="button" value="Calculate" />
       <button class="btn btn-light infoBtn" type="button">How to use the Parlay Calculator</button>
       </div>
     </div>

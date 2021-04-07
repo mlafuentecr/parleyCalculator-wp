@@ -5,8 +5,8 @@
 function add_stylesheet_arbitrage()
 {
     echo "<!-- CUSTOM JS Parlay-->";
-    echo "<link href='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.css?v=2.8' rel='stylesheet' type='text/css'>";
-    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.js?v=2.8'></script>";
+    echo "<link href='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.css?v=4.4' rel='stylesheet' type='text/css'>";
+    echo "<script defer  src='" . get_template_directory_uri() . "/calculator/arbitrage/arbitrage.js?v=4.4'></script>";
 }
 
 function calculator_function_arbitrage($atts = array())
@@ -17,7 +17,7 @@ function calculator_function_arbitrage($atts = array())
       <div class="col-md-5 col-sm-12">
         <div class="form-col">
           <div class="col-inner">
-            <h5 class="odds-title">Enter Odds &amp; Stake </h5>
+
             <div class="bet-row">
                                               <div class="col-input-block arbitrage-bet-row" data-id="1">
               <label>Bet 1</label>
